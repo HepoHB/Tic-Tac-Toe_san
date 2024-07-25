@@ -6,13 +6,15 @@ public class Main{
     static Scanner scanner = new Scanner(System.in);
     static Statistics playerOne = new Statistics();
     static Statistics playerTwo = new Statistics();
+    static short round = 1;
+    static byte[][] matrix = {
+            {10, 20, 30},
+            {40, 50, 60},
+            {70, 80, 90}
+    };
+    static Board board = new Board(matrix);
 
     public static void main(String[] args){
-        byte[][] matrix = {
-                {10, 20, 30},
-                {40, 50, 60},
-                {70, 80, 90}
-        };
         //Initializer();
         Game(matrix);
 
@@ -31,37 +33,18 @@ public class Main{
     public static void Game(byte[][] matrix){
         boolean run = true;
         do{
-            System.out.print("Digite a linha em que deseja marcar: ");
-            byte line = VarLimiter();
-            System.out.print("Agora digite a coluna: ");
-            byte column = VarLimiter();
-            if(matrix[line][column] > 3){
-                matrix[line][column] = 1;
-
-            } else{
-                System.out.println("Esta casa já está ocupada! Tente novamente.");
-
-            }
-            System.out.println(matrix[line][column]);
-
+            System.out.print("Digite a coluna em que deseja marcar: ");
+            byte line = board.varLimiter(scanner);
+            System.out.print("Agora digite a linha: ");
+            byte column = board.varLimiter(scanner);
+            board.setBoard(line, column, round);
+            board.showBoard();
+            run = board.verifyWinner(run);
+            round++;
 
         } while(run);
 
 
-    }
-
-    public static byte VarLimiter(){
-        byte value;
-        do{
-            value = scanner.nextByte();
-            if (value >= 4 || value < 1){
-                System.out.print("Este valor não representa uma casa do tabuleiro! Digite novamente: ");
-
-            }
-        } while(value >= 3 || value < 1);
-        value--;
-        System.out.println(value);
-        return value;
     }
 
 }
