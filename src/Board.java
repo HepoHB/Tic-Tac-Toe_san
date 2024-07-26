@@ -47,6 +47,7 @@ public class Board {
     }
 
     public static boolean verifyWinner(boolean run){
+        short sumY = -1;
         for(short i = 0; i < matrix.length; i++){
             for(short j = 0; j < matrix.length; j++){
 
