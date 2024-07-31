@@ -107,7 +107,11 @@ public class Board {
     }
 
     public static void resetMatrix(byte[][] matrixes){
-        matrix = matrixes;
+        matrix = new byte[matrixes.length][];
+        for (int i = 0; i < matrixes.length; i++){
+            matrix[i] = Arrays.copyOf(matrixes[i], matrixes[i].length);
+
+        }
 
     }
 

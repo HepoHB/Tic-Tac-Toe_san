@@ -1,6 +1,6 @@
 public class Statistics{
 
-    private static String playerName;
+    private String playerName;
 
     public void setName(String playerName){
         this.playerName = playerName;

@@ -47,7 +47,7 @@ public class Main{
                 round++;
 
             } while(run);
-            if(round % 2 == 0){
+            if((round - 1) % 2 == 0){
                 System.out.printf("Parabéns, %s! Você venceu! \n", playerOne.getName());
 
             } else{
@@ -63,16 +63,5 @@ public class Main{
 
 
     }
-
-//    @Override
-//    public void keyPressed(KeyEvent e) {
-//        switch (e.getKeyCode()) {
-//            case KeyEvent.VK_W:
-//
-//                break;
-//
-//        }
-//
-//    }
 
 }
