@@ -38,10 +38,23 @@ public class Main{
             boolean run = true;
             do {
                 board.showBoard();
-                System.out.print("Digite a coluna em que deseja marcar: ");
-                byte line = board.varLimiter(scanner);
-                System.out.print("Agora digite a linha: ");
-                byte column = board.varLimiter(scanner);
+                byte line;
+                byte column;
+                boolean writeAXIS = true;
+                do{
+                    System.out.print("Digite a coluna em que deseja marcar: ");
+                    line = board.varLimiter(scanner);
+                    System.out.print("Agora digite a linha: ");
+                    column = board.varLimiter(scanner);
+                    if(board.blockRepeat(line, column)){
+                        writeAXIS = false;
+
+                    } else{
+                        System.out.println("Esta casa já foi ocupada! Tente novamente.");
+
+                    }
+
+                } while(writeAXIS);
                 board.setBoard(line, column, round);
                 run = board.verifyWinner(run);
                 round++;

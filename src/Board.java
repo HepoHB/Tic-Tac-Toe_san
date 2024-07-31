@@ -27,7 +27,6 @@ public class Board {
     }
 
     public static void setBoard(byte column, byte line, int round){
-        System.out.println("Round = " + (round % 2));
         if ((round % 2) == 0){
             matrix[line][column] = 1;
 
@@ -81,7 +80,6 @@ public class Board {
 
     private static boolean verifySum(int sum, boolean run){
         if (sum == 3 || sum == 0) {
-            System.out.println("YOSHI");
             run = false;
             return run;
 
@@ -110,6 +108,17 @@ public class Board {
         matrix = new byte[matrixes.length][];
         for (int i = 0; i < matrixes.length; i++){
             matrix[i] = Arrays.copyOf(matrixes[i], matrixes[i].length);
+
+        }
+
+    }
+
+    public static boolean blockRepeat(byte column, byte line){
+        if(matrix[line][column] == 1 || matrix[line][column] == 0){
+            return false;
+
+        } else{
+            return true;
 
         }
 
