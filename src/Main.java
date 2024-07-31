@@ -41,6 +41,16 @@ public class Main{
                 byte line;
                 byte column;
                 boolean writeAXIS = true;
+
+                if(round % 2 == 0) {
+                    System.out.printf("Sua vez de jogar, %s! \n", playerOne.getName());
+
+                } else{
+                    System.out.printf("Sua vez de jogar, %s! \n", playerTwo.getName());
+
+
+                }
+
                 do{
                     System.out.print("Digite a coluna em que deseja marcar: ");
                     line = board.varLimiter(scanner);
